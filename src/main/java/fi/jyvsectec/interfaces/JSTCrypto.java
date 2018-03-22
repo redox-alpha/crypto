@@ -4,15 +4,15 @@ import fi.jyvsectec.exception.CryptoFailedException;
 
 public interface JSTCrypto {
 
-    public void initializeCrypto(byte[] key);
+    void initializeCrypto(byte[] key);
 
-    public void initializeCrypto(byte[] key,byte[] iv) throws CryptoFailedException;
+    void initializeCrypto(byte[] key, byte[] iv) throws CryptoFailedException;
 
-    public byte[] doEncrypt(byte[] plaintext);
+    byte[] doEncrypt(byte[] plaintext) throws CryptoFailedException;
 
-    public byte[] doDecrypt(byte[] ciphertext);
+    byte[] doDecrypt(byte[] ciphertext) throws CryptoFailedException;
 
-    public byte[] doDecrypt(byte[] ciphertext,byte[] key);
+    byte[] doDecrypt(byte[] ciphertext, byte[] key) throws CryptoFailedException;
 
 
 }
