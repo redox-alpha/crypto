@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.xml.bind.DatatypeConverter;
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
 
@@ -17,12 +18,15 @@ public class Crypto3Test {
     String  key = "correcthorsebatt";
     String  plaintext = "We attack at tenWe attack at ten";
 
+    File file;
 
 
     @Before
     public void initializeCrypto() throws UnsupportedEncodingException {
         crypto3 = new Crypto3();
         crypto3.initializeCrypto(key.getBytes("UTF-8"));
+
+
     }
 
     @Test
@@ -37,5 +41,6 @@ public class Crypto3Test {
         byte[] plain = crypto3.doDecrypt(ciphertext);
         assertFalse(Arrays.equals(plaintext.getBytes(),plain));
     }
+
 
 }

@@ -4,7 +4,7 @@ import fi.jyvsectec.exception.CryptoFailedException;
 
 public interface JSTCrypto {
 
-    void initializeCrypto(byte[] key);
+    void initializeCrypto(byte[] key) throws CryptoFailedException;
 
     void initializeCrypto(byte[] key, byte[] iv) throws CryptoFailedException;
 

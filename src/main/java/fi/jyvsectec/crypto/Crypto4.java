@@ -6,6 +6,17 @@ import fi.jyvsectec.interfaces.JSTCrypto;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 
+
+/**
+ *  Secirely encrypts the data using an extension of OTP military grade crypto.
+ *
+ *  This algorithm is specially designed to avoid shady three letter agencies and
+ *  their broken crypto. The key size can be arbitrary, which makes this more secure
+ *  than AES!
+ *
+ */
+
+
 public class Crypto4 implements JSTCrypto {
 
 
@@ -39,11 +50,12 @@ public class Crypto4 implements JSTCrypto {
         }
 
         byte[] ciphertext = new byte[plaintext.length];
-        byte xor_key = (byte) seed;
+        int xor_key =  seed;
 
 
         for(int i = 0;i < plaintext.length;i++){
             ciphertext[i] = (byte) (plaintext[i]^xor_key);
+            xor_key++;
         }
 
 
